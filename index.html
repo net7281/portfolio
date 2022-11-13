@@ -11,6 +11,8 @@
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="http://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="js/jquery.fadethis.js"></script>
+
     <title>portfolio_netBoss</title>
 
 
@@ -348,8 +350,37 @@
         .license p{
             font-size: 15px;
             font-weight: 600;
+            margin-bottom: 12px;
         }
+        /* section_2 end */
 
+        /* section_3 - project */
+        .mockup_wrap{
+            width: 750px; height: 580px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .mockup_wrap>img{
+            width: 750px;
+            position: absolute;
+            top: 0;
+        }
+        .mockup{
+            width: 530px; height: 335px;
+            z-index: -3;
+            position: absolute;
+            left: 110px;
+            top: 60px;
+            overflow: hidden;
+        }
+        .anitel{
+            width: 530px;
+            transform: scale(1.1) translateY(63px);
+            transition: transform 3s;
+        }
+        .mockup_wrap:hover .anitel{
+            transform: scale(1.1) translateY(-1010px);
+        }
     </style> 
 
    <script>
@@ -365,7 +396,6 @@
 		    $window.on('scroll', function(){ //스크롤시
 		        var scrolled = $window.scrollTop() >= pageOffsetTop;
 		        $header.toggleClass('down', scrolled);
-                console.log($window.scrollTop())
                 if($window.scrollTop()>30 && $window.scrollTop()<720 ){
                     $('.line').width($window.scrollTop()/100)
                 }
@@ -375,6 +405,7 @@
                 if($window.scrollTop()<310 || $window.scrollTop()>1900){
                     $sign_path.removeAttribute("class", "sign_ani");
                 }
+
 		    });
         })
 
@@ -454,7 +485,7 @@
                     <p class="skills_titel">Skill</p>
                     <div class="long_line"></div>
                     <p class="skills_text">I CAN USE</p>
-                    <div class="icon_wrap">
+                    <div class="slide-left icon_wrap">
                         <img class="icon" src="img/skill_java.png" alt="skill_java">
                         <img class="icon" src="img/skill_spring.png" alt="skill_springboot">
                         <img class="icon" src="img/skill_oracle.png" alt="skill_oracle">
@@ -468,7 +499,7 @@
                         <img class="icon" src="img/skill_figma.png" alt="skill_figma">
                     </div>
                     <p class="skills_text">I CAN USE</p>
-                    <div class="icon_wrap">
+                    <div class="slide-left icon_wrap">
                         <img class="icon" src="img/skill_ps.png" alt="skill_ps">
                         <img class="icon" src="img/skill_ai.png" alt="skill_ai">
                         <img class="icon" src="img/skill_id.png" alt="skill_id">
@@ -485,7 +516,20 @@
                     </div>
                 </div>
             </div>
+            <div class="project">
+                <div class="project_line"></div>
+                <p class="project_title">Project</p>
+                <div class="project_con_wrap">
+                    <div class="mockup_wrap">
+                        <img src="img/mockup.png" alt="mockup">
+                        <div class="mockup">
+                            <img class="anitel" src="img/anitel.png" alt="anitel">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script>$(window).fadeThis({speed: 500});</script>
 </body>
 </html>
