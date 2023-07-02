@@ -15,546 +15,9 @@
     <script src="js/jquery.fadethis.js"></script>
     
     <link rel="shortcut icon" href="/favicon.ico">
-
+    <link rel="stylesheet" href="css/style.css">
     <title>portfolio_netBoss</title>
 
-    <style>
-        *{
-            margin: 0; padding: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            color: #333;
-        }
-        a{
-            color: #333;
-            text-decoration: none;
-        }
-        .wrap{
-            width: 100vw;
-            height: auto;
-            overflow: hidden;
-        }
-
-        /* top_menu */
-        #top_menu{
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 50px;
-            box-sizing: border-box;
-            position: fixed;
-            z-index: 50;
-            transition: background-color 0.5s;
-        }
-        .down{
-            background-color: #ffffffcc;
-        }
-        #top_menu p{
-            font-weight: 800;
-            line-height: 80px;
-            font-size: 15px;
-        }
-        #top_menu svg{
-            margin-top: 30px;
-        }
-        /* top_menu end */
-
-        
-        /* header */
-        .header{
-            width: 1440px;
-            height: 100vh;
-            margin: 0 auto;
-            position: relative;
-        }
-        .header_text{
-            position: absolute;
-            z-index: 5;
-            top: 470px; left: 250px;
-        }
-        .header_text h1{
-            font-size: 100px;
-            font-weight: 900;
-            letter-spacing: 0px;
-            animation: title_ani 1s;
-        }
-        @keyframes title_ani{
-            0%{
-                opacity: 0;
-                letter-spacing: 60px
-            }
-        }
-        .header_text span{
-            display: flex;
-        }
-        .header_text h2{
-            font-size: 30px;
-            font-weight: 900;
-            margin-top: -20px;
-            word-break:break-all;
-            width: 0;
-            height: 44px;
-            overflow: hidden;
-            animation: text_ani infinite alternate step-end 5s 1s;
-        }
-        @keyframes text_ani {
-            0%{width: 0px;}
-            3%{width: 27px;}
-            6%{width: 46px;}
-            9%{width: 66px;}
-            12%{width: 86px;}
-            15%{width: 93px;}
-            18%{width: 107px;}
-            21%{width: 125px;}
-            24%{width: 144px;}
-            27%{width: 158px;}
-            30%{width: 175px;}
-            33%{width: 205px;}
-            36%{width: 234px;}
-            39%{width: 252px;}
-            42%{width: 266px;}
-            100%{width: 266px;}
-        }
-        #text_bar{
-            width: 5px; height: 30px;
-            background-color: #333;
-            margin-top: -10px;
-            margin-left: 5px;
-            animation: text_bar_ani infinite alternate 0.4s;
-        }
-        @keyframes text_bar_ani {
-            100%{opacity: 0;}
-        }
-        .blur20{
-            filter: blur(20px);
-            -webkit-filter: blur(20px);
-        }
-        .blur80{
-            filter: blur(80px);
-            -webkit-filter: blur(80px);
-        }
-        .circleBig{
-            width: 1000px; height: 1000px;
-            background-color: #FFD2FF;
-            border-radius: 50%;
-            position: absolute;
-            top: -125px; left: -175px;
-        }
-        .circle1, .circle2{
-            width: 780px; height: 780px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            opacity: .7;
-            position: absolute;
-        }
-        .circle1{
-            top: 280px; left: -10px;
-        }
-        .circle2{
-            top: 0; left: 560px;
-        }
-        .flowerBig{
-            position: absolute;
-            width: 260px; height: 260px;
-            top: 340px; right: 200px;
-            animation: Bflower_ani linear infinite 10s;
-        }
-        .flower{
-            position: absolute;
-            width: 126px; height: 126px;
-            
-        }
-        .f_top{
-            top: 230px; right: 440px;
-            transform: scale(1);
-            animation: flower_ani alternate infinite 3s;
-        }
-        .f_bottom{
-            top: 600px; right: 80px;
-            transform: scale(0.5);
-            animation: flower_ani alternate-reverse infinite 3s;
-        }
-        @keyframes flower_ani {
-            0%{transform: scale(0.5); opacity: 0.4;}
-            100%{transform: scale(1);}
-        }
-        @keyframes Bflower_ani{
-            100%{transform: rotateZ(360deg);}
-        }
-        .line{
-            width: 2px;
-            height: 1140px;
-            background-color: #f3f;
-            position: absolute;
-            top: 300px;
-            left: 210px;
-            max-width: 5px;
-            min-width: 2px;
-        }
-        /* header end */
-
-        /* section_1 - aboutMe */
-        .con_wrap{
-            width: 1440px;
-            margin: 0 auto;
-        }
-        .about{
-            margin-top: 380px;
-            text-align: center;
-        }
-        .about h3{
-            font-size: 50px;
-            font-weight: 800;
-            text-align: left;
-            margin-left: 250px;
-        }
-        #sign{
-            width: 220px; height: 220px; 
-            margin: 70px 0;
-            fill:none;
-        }
-        #sign_path{
-            stroke-dasharray: 1867; stroke-dashoffset: 1867;
-            stroke-width:5px;
-        }
-        .sign_ani{
-            animation: sign_ani  linear both 1s;
-        }
-        @keyframes sign_ani {
-            from {stroke-dashoffset : -1867px;}
-            to {stroke-dashoffset : -933px;}
-        }
-        .hi{
-            font-size: 30px;
-            font-weight: 800;
-        }
-        .name_line{
-            width: 50px; height: 7px;
-            background-color: #f3f;
-            margin: 0 auto;
-            box-sizing: border-box;
-            position: relative;
-            left: -40px;
-        }
-        .name{
-            font-size: 30px;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .about p:nth-child(6){
-            color: #666;
-            font-size: 15px;
-        }
-        .about_line{
-            width: 80px;
-            height: 1px;
-            background-color: #666;
-            margin: 30px auto;
-        }
-        .info_wrap{
-            display: flex;
-            justify-content: center;
-        }
-        .info_wrap svg{
-            width: 20px; height: 20px;
-            fill: #666;
-            position: absolute;
-            top: 5px; left: 5px;
-        }
-        .info_wrap div{
-            display: flex;
-            border: 1px solid #333;
-            border-radius: 25px;
-            width: 30px; height: 30px;
-            overflow: hidden;
-            justify-content: left;
-            position: relative;
-            transition: all 0.5s;
-            cursor: pointer;
-            margin: 1px;
-        }
-        .info_wrap p, .info_wrap input{
-            font-size: 12px;
-            color: #666;
-            line-height: 30px;
-            margin-left: 30px;
-            word-break:break-all;
-        }
-        .info_wrap input{
-            border: 0;
-            outline: none;
-            cursor: pointer;
-        }
-        .call:hover{ width: 140px; }
-        .mail:hover{ width: 170px; }
-        .home:hover{ width: 130px; }
-        .github:hover{ width: 170px; }
-        /* section_1 end */
-
-        /* section_2 - skills */
-        .skills{
-            width: 910px;
-            margin: 0 auto;
-            margin-top: 300px;
-        }
-        .skill_wrap{
-            position: relative;
-            margin-bottom: 130px;
-        }
-        .skills_titel{
-            font-size: 40px;
-            font-weight: 800;
-            margin-bottom: 60px;
-        }
-        .skills_text{
-            font-size: 15px;
-            font-weight: 800;
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-        .long_line{
-            width: 780px; height: 2px;
-            background-color: #f3f;
-            position: absolute;
-            top: 30px; right: 0;
-        }
-        .icon_wrap{
-            width: 810px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        .icon{
-            width: 60px; height: 60px;
-            filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-            transition: all 0.3s;
-            margin: 15px;
-        }
-        .icon:hover{
-            transform: scale(1.2);
-            filter: grayscale(0%);
-            -webkit-filter: grayscale(0%);
-        }
-        .license_wrap{
-            position: relative;
-        }
-        .license_wrap .long_line{
-            width: 720px;
-        }
-        .license{
-            margin-left: 80px;
-            margin-bottom: 500px;
-        }
-        .license p{
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        /* section_2 end */
-
-        /* section_3 - project */
-        .project{
-            position: relative;
-        }
-        .project_con_wrap{
-            margin-bottom: 230px;
-        }
-        .project_line{
-            width: 130px; height: 10px;
-            background-color: #f3f;
-            text-align: right;
-            position: absolute;
-            top: -10px; right: 350px;
-        }
-        .project_title{
-            font-size: 50px;
-            font-weight: 800;
-            text-align: right;
-            margin-right: 400px;
-            margin-bottom: 70px;
-        }
-        .mockup_wrap{
-            width: 750px; height: 580px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .witch_wrap{
-            top: 50px;
-            margin-top: -100px;
-        }
-        .mockup_wrap>img{
-            width: 750px;
-            position: absolute;
-            top: 0;
-        }
-        .mockup{
-            width: 530px; height: 335px;
-            z-index: -3;
-            position: absolute;
-            left: 110px;
-            top: 60px;
-            overflow: hidden;
-        }
-        .forWitch{
-            width: 550px; height: 260px;
-            top: 140px; left: 99px;
-            background-color: #000;
-        }
-        .anitel{
-            width: 530px;
-            transform: scale(1.1) translateY(63px);
-            transition: transform 3s;
-        }
-        .ybb{
-            width: 530px;
-            position: absolute;
-        }
-        .witch{
-            width: 465px;
-            margin-left: 45px;
-        }
-        .mockup_wrap:hover .anitel{
-            transform: scale(1.1) translateY(-1010px);
-        }
-        .con_title{
-            position: relative;
-            top: -70px;
-            width: 630px;
-            margin: 0 auto;
-            display: flex;
-        }
-        .con_title p:nth-child(1){
-            font-size: 25px;
-            font-weight: 800;
-        }
-        .con_title div{
-            width: 35px; height: 2px;
-            background-color: #333;
-            margin: 0 15px;
-            margin-top: 28px;
-        }
-        .con_title p:nth-child(3){
-            font-size: 15px;
-            font-weight: 600;
-            margin-top: 11px;
-        }
-        .con_table{
-            width: 630px;
-            margin: 0 auto;
-            font-size: 15px;
-            text-align: left;
-            position: relative;
-            top: -50px;
-        }
-        .con_table th{
-            width: 200px;
-            height: 25px;
-            vertical-align: top;
-        }
-        .con_table td{
-            color: #666;
-            font-weight: 300;
-        }
-        .button_wrap{
-            width: 640px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-        }
-        .ybbBT{
-            justify-content: center;
-        }
-        .button_wrap a{
-            font-size: 15px;
-            font-weight: 600;
-            text-align: center;
-            line-height: 38px;
-            width: 200px; height: 40px;
-            border-radius: 20px;
-            border: 1px solid #333;
-            box-sizing: border-box;
-            transition: background-color 0.3s;
-        }
-        .button_wrap a:hover{
-            background-color: #D9D9D9;
-        }
-        .ybbBT a:nth-child(1){
-            margin-right: 20px;
-        }
-        .other{
-            width: 630px;
-            margin: 0 auto;
-            margin-bottom: 300px;
-        }
-        .other>p{
-            font-size: 25px;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-        .other_tb>p{
-            font-size: 15px;
-            font-weight: 600;
-        }
-        .other_tb a{
-            font-size: 15px;
-            color: #666;
-            text-decoration: underline;
-            position: relative;
-            left: 200px;
-        }
-        .other_tb a:nth-child(2),.other_tb a:nth-child(4){
-            top: -23px;
-        }
-        .other_tb a:nth-child(6){
-            top: 5px;
-        }
-
-        /* footer */
-        .footer{
-            width: 100%; height: 140px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 100;
-            padding-top: 50px;
-            box-sizing: border-box;
-        }
-
-        #side_menu{
-            position: fixed;
-            top: 0;right: 0;
-            z-index: 100;
-            width: 0; height: 100vh;
-            background-color: #333333;
-            overflow: hidden;
-            transition: width 0.5s;
-        }
-        #side_menu svg{
-            width: 30px;height: 30px;
-            fill: #fff;
-            position: absolute;
-            top: 10px; right: 10px;
-        }
-        .menu_wrap{
-            width: 250px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            margin-top: 100px; margin-left: 50px;
-        }
-        .menu_wrap div, .menu_wrap a{
-            color: #fff;
-            font-weight: 200;
-            cursor: pointer;
-        }
-        .open{
-            width: 300px !important;
-        }
-    </style> 
 
    <script>
         $(function(){
@@ -656,7 +119,7 @@
                 <div class="name_line"></div>
                 <p class="name">정현정</p>
                 <p>항상 지식을 얻고 성장하고 싶은 개발자 정현정입니다.<br>
-                    백엔드 뿐만 아니라 프론트엔드( css, JavaScript ), 디자인 툴도 능숙한 개발자입니다.</p>
+                    프론트엔드( css, JavaScript ) 뿐만 아니라 백엔드( java, SpringBoot ), 디자인 툴도 능숙한 개발자입니다.</p>
                 <div class="about_line"></div>
                 <div class="info_wrap">
                     <div class="call" onclick="document.location.href='tel:010-2719-7281'">
@@ -673,7 +136,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"/></svg>
                         <p>부산 남구 문현동</p>
                     </div>
-                    <div class="github" onclick="document.location.href='https://github.com/net7281'">
+                    <div class="github" onclick="document.location.href=`https://github.com/net7281`">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
                         <p>Click to go my GitHub</p>
                     </div>
@@ -689,12 +152,10 @@
                         <img class="icon" src="img/skill_java.png" alt="skill_java">
                         <img class="icon" src="img/skill_spring.png" alt="skill_springboot">
                         <img class="icon" src="img/skill_oracle.png" alt="skill_oracle">
+                        <img class="icon" src="img/skill_mysql.png" alt="skill_oracle">
                         <img class="icon" src="img/skill_html.png" alt="skill_html">
                         <img class="icon" src="img/skill_css.png" alt="skill_css">
                         <img class="icon" src="img/skill_js.png" alt="skill_java">
-                        <img class="icon" src="img/skill_unity.png" alt="skill_unity">
-                        <img class="icon" src="img/skill_c.png" alt="skill_c">
-                        <img class="icon" src="img/skill_c++.png" alt="skill_c++">
                         <img class="icon" src="img/skill_xd.png" alt="skill_xd">
                         <img class="icon" src="img/skill_figma.png" alt="skill_figma">
                     </div>
@@ -711,6 +172,7 @@
                     <p class="skills_titel">License</p>
                     <div class="long_line"></div>
                     <div class="license">
+                        <p>2022.12 - 과정평가형 정보처리산업기사</p>
                         <p>2022.09 - SQLD ( sql 개발자 )</p>
                         <p>2021.08 - GTQ, GTQi, GTQd ( 그래픽 기술자격 - 포토샵, 일러스트, 인디자인)</p>
                     </div>
@@ -719,6 +181,37 @@
             <div class="project">
                 <div class="project_line"></div>
                 <p class="project_title">Project</p>
+                <div class="project_con_wrap">
+                    <div class="mockup_wrap ghost_wrap" onmouseover="gif_src(this)" onmouseout="png_src(this)">
+                        <img src="img/mockup_phone - Vertical.png" alt="mockup">
+                        <div class="mockup forGhost">
+                            <img class="ghost gifImg" src="img/ghost.png" alt="ghost">
+                        </div>
+                    </div>
+                    <div class="con_title">
+                        <p>Ghost Coloring</p>
+                        <div></div>
+                        <p>랜덤한 컬러의 유령캐릭터를 생성 및 이미지 다운로드</p>
+                    </div>
+                    <table class="con_table">
+                        <tr>
+                            <th>개발 인원</th>
+                            <td>개인프로젝트</td>
+                        </tr>
+                        <tr>
+                            <th>사용 언어 / 개발 환경</th>
+                            <td>JavaScript / html</td>
+                        </tr>
+                        <tr>
+                            <th>주요업무 및 역할</th>
+                            <td>디자인 및 개발</td>
+                        </tr>
+                    </table>
+                    <div class="button_wrap ybbBT">
+                        <a href="https://net7281.github.io/Ghost_Coloring/" target="_blank">홈페이지 바로가기</a>
+                        <a href="https://github.com/net7281/Ghost_Coloring" target="_blank">깃허브 바로가기</a>
+                    </div>
+                </div>
                 <div class="project_con_wrap">
                     <div class="mockup_wrap">
                         <img src="img/mockup.png" alt="mockup">
